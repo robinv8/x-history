@@ -9,7 +9,7 @@ It keeps a **local-only** history of posts you care about — detail pages you o
 
 **Website:** https://x-history.robinren.me · **Privacy:** https://x-history.robinren.me/privacy.html
 
-Also on Cloudflare Pages (`x-history.pages.dev`) and GitHub Pages (`docs/`).
+Hosted on **GitHub Pages** (`docs/`) with custom domain via Cloudflare DNS.
 
 ## Features
 
@@ -79,7 +79,7 @@ git commit -m "chore: release v1.1.0"
 gh repo create robinv8/x-history --public --source=. --remote=origin --push
 ```
 
-Enable **GitHub Pages** → Deploy from branch → `/docs`.
+Enable **GitHub Pages** → branch `main` → `/docs`, custom domain `x-history.robinren.me` (see `docs/CNAME`).
 
 ## Notes
 
