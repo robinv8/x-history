@@ -7,7 +7,9 @@ Chrome / Edge extension that adds a **History** entry to the X (Twitter) sidebar
 
 It keeps a **local-only** history of posts you care about — detail pages you open, plus likes, reposts, replies, bookmarks, and careful timeline reads — with search. Nothing is uploaded by default.
 
-**Website:** [Landing page](docs/index.html) · **Privacy:** [store/privacy.html](store/privacy.html)
+**Website:** https://x-history.robinren.me · **Privacy:** https://x-history.robinren.me/privacy.html
+
+Also on Cloudflare Pages (`x-history.pages.dev`) and GitHub Pages (`docs/`).
 
 ## Features
 

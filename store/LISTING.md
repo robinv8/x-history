@@ -16,9 +16,9 @@
 | Short description | `History in the X sidebar. Saves posts you open, like, repost, or carefully read. Search later — data stays on your device.` |
 | Detailed description | 复制下方 English 详细说明 |
 | Single purpose | `This extension’s single purpose is to keep a local history of X/Twitter posts the user opens or interacts with in the browser, and to surface that history via a sidebar entry and searchable list on x.com.` |
-| Website | GitHub Pages landing（`docs/`）或仓库主页 |
+| Website | https://x-history.robinren.me |
 | Support URL | GitHub Issues |
-| Privacy policy URL | 填公开托管后的 `store/privacy.html` 地址 |
+| Privacy policy URL | `https://x-history.robinren.me/privacy.html` |
 
 ### Privacy practices
 
