@@ -1,5 +1,6 @@
 # X History
 
+[![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-Install-4285F4?logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/jijknbffmnjebeklhmmfldhgkefgcdoo)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Manifest V3](https://img.shields.io/badge/Manifest-V3-lightgrey.svg)](manifest.json)
 
@@ -31,7 +32,7 @@ Hosted on **GitHub Pages** (`docs/`) with custom domain via Cloudflare DNS.
 
 ## Install (store)
 
-After listing is live, use the Chrome Web Store link on the [landing page](docs/index.html).
+Install from the [Chrome Web Store](https://chromewebstore.google.com/detail/jijknbffmnjebeklhmmfldhgkefgcdoo).
 
 ## Package / publish
 
