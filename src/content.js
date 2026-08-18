@@ -43,8 +43,8 @@
 
   const I18N = {
     en: {
-      nav: "History",
-      title: "History",
+      nav: "Local History",
+      title: "Local History",
       clear: "Clear",
       clearAria: "Clear history",
       clearConfirm: "Clear all browsing history?",
@@ -76,11 +76,16 @@
       minutes: (n) => `${n}m`,
       hours: (n) => `${n}h`,
       days: (n) => `${n}d`,
-      docTitle: "History / X",
+      docTitle: "Local History / X",
+      groupToday: "Today",
+      groupYesterday: "Yesterday",
+      groupWeek: "This week",
+      groupEarlier: "Earlier",
+      itemsCount: (n) => `${n} ${n === 1 ? "post" : "posts"}`,
     },
     zh: {
-      nav: "历史",
-      title: "历史",
+      nav: "本地历史",
+      title: "本地历史",
       clear: "清空",
       clearAria: "清空历史",
       clearConfirm: "清空全部浏览历史？",
@@ -112,11 +117,16 @@
       minutes: (n) => `${n} 分钟`,
       hours: (n) => `${n} 小时`,
       days: (n) => `${n} 天`,
-      docTitle: "历史 / X",
+      docTitle: "本地历史 / X",
+      groupToday: "今天",
+      groupYesterday: "昨天",
+      groupWeek: "本周",
+      groupEarlier: "更早",
+      itemsCount: (n) => `${n} 条`,
     },
     "zh-tw": {
-      nav: "紀錄",
-      title: "紀錄",
+      nav: "本機紀錄",
+      title: "本機紀錄",
       clear: "清除",
       clearAria: "清除紀錄",
       clearConfirm: "清除全部瀏覽紀錄？",
@@ -148,11 +158,16 @@
       minutes: (n) => `${n} 分鐘`,
       hours: (n) => `${n} 小時`,
       days: (n) => `${n} 天`,
-      docTitle: "紀錄 / X",
+      docTitle: "本機紀錄 / X",
+      groupToday: "今天",
+      groupYesterday: "昨天",
+      groupWeek: "本週",
+      groupEarlier: "更早",
+      itemsCount: (n) => `${n} 則`,
     },
     ja: {
-      nav: "履歴",
-      title: "履歴",
+      nav: "ローカル履歴",
+      title: "ローカル履歴",
       clear: "消去",
       clearAria: "履歴を消去",
       clearConfirm: "閲覧履歴をすべて消去しますか？",
@@ -184,11 +199,16 @@
       minutes: (n) => `${n}分`,
       hours: (n) => `${n}時間`,
       days: (n) => `${n}日`,
-      docTitle: "履歴 / X",
+      docTitle: "ローカル履歴 / X",
+      groupToday: "今日",
+      groupYesterday: "昨日",
+      groupWeek: "今週",
+      groupEarlier: "それ以前",
+      itemsCount: (n) => `${n} 件`,
     },
     ko: {
-      nav: "기록",
-      title: "기록",
+      nav: "로컬 기록",
+      title: "로컬 기록",
       clear: "지우기",
       clearAria: "기록 지우기",
       clearConfirm: "모든 방문 기록을 지울까요?",
@@ -220,11 +240,16 @@
       minutes: (n) => `${n}분`,
       hours: (n) => `${n}시간`,
       days: (n) => `${n}일`,
-      docTitle: "기록 / X",
+      docTitle: "로컬 기록 / X",
+      groupToday: "오늘",
+      groupYesterday: "어제",
+      groupWeek: "이번 주",
+      groupEarlier: "이전",
+      itemsCount: (n) => `${n}개`,
     },
     es: {
-      nav: "Historial",
-      title: "Historial",
+      nav: "Historial local",
+      title: "Historial local",
       clear: "Borrar",
       clearAria: "Borrar historial",
       clearConfirm: "¿Borrar todo el historial?",
@@ -256,11 +281,16 @@
       minutes: (n) => `${n} min`,
       hours: (n) => `${n} h`,
       days: (n) => `${n} d`,
-      docTitle: "Historial / X",
+      docTitle: "Historial local / X",
+      groupToday: "Hoy",
+      groupYesterday: "Ayer",
+      groupWeek: "Esta semana",
+      groupEarlier: "Anteriores",
+      itemsCount: (n) => `${n} posts`,
     },
     fr: {
-      nav: "Historique",
-      title: "Historique",
+      nav: "Historique local",
+      title: "Historique local",
       clear: "Effacer",
       clearAria: "Effacer l’historique",
       clearConfirm: "Effacer tout l’historique ?",
@@ -292,11 +322,16 @@
       minutes: (n) => `${n} min`,
       hours: (n) => `${n} h`,
       days: (n) => `${n} j`,
-      docTitle: "Historique / X",
+      docTitle: "Historique local / X",
+      groupToday: "Aujourd’hui",
+      groupYesterday: "Hier",
+      groupWeek: "Cette semaine",
+      groupEarlier: "Plus tôt",
+      itemsCount: (n) => `${n} posts`,
     },
     de: {
-      nav: "Verlauf",
-      title: "Verlauf",
+      nav: "Lokaler Verlauf",
+      title: "Lokaler Verlauf",
       clear: "Löschen",
       clearAria: "Verlauf löschen",
       clearConfirm: "Gesamten Verlauf löschen?",
@@ -328,11 +363,16 @@
       minutes: (n) => `${n} Min.`,
       hours: (n) => `${n} Std.`,
       days: (n) => `${n} T.`,
-      docTitle: "Verlauf / X",
+      docTitle: "Lokaler Verlauf / X",
+      groupToday: "Heute",
+      groupYesterday: "Gestern",
+      groupWeek: "Diese Woche",
+      groupEarlier: "Früher",
+      itemsCount: (n) => `${n} Posts`,
     },
     pt: {
-      nav: "Histórico",
-      title: "Histórico",
+      nav: "Histórico local",
+      title: "Histórico local",
       clear: "Limpar",
       clearAria: "Limpar histórico",
       clearConfirm: "Limpar todo o histórico?",
@@ -364,11 +404,16 @@
       minutes: (n) => `${n} min`,
       hours: (n) => `${n} h`,
       days: (n) => `${n} d`,
-      docTitle: "Histórico / X",
+      docTitle: "Histórico local / X",
+      groupToday: "Hoje",
+      groupYesterday: "Ontem",
+      groupWeek: "Esta semana",
+      groupEarlier: "Anteriores",
+      itemsCount: (n) => `${n} posts`,
     },
     ru: {
-      nav: "История",
-      title: "История",
+      nav: "Локальная история",
+      title: "Локальная история",
       clear: "Очистить",
       clearAria: "Очистить историю",
       clearConfirm: "Очистить всю историю?",
@@ -400,11 +445,16 @@
       minutes: (n) => `${n} мин`,
       hours: (n) => `${n} ч`,
       days: (n) => `${n} д`,
-      docTitle: "История / X",
+      docTitle: "Локальная история / X",
+      groupToday: "Сегодня",
+      groupYesterday: "Вчера",
+      groupWeek: "На этой неделе",
+      groupEarlier: "Ранее",
+      itemsCount: (n) => `${n}`,
     },
     ar: {
-      nav: "السجل",
-      title: "السجل",
+      nav: "السجل المحلي",
+      title: "السجل المحلي",
       clear: "مسح",
       clearAria: "مسح السجل",
       clearConfirm: "هل تريد مسح كل السجل؟",
@@ -436,7 +486,12 @@
       minutes: (n) => `${n} د`,
       hours: (n) => `${n} س`,
       days: (n) => `${n} ي`,
-      docTitle: "السجل / X",
+      docTitle: "السجل المحلي / X",
+      groupToday: "اليوم",
+      groupYesterday: "أمس",
+      groupWeek: "هذا الأسبوع",
+      groupEarlier: "سابقًا",
+      itemsCount: (n) => `${n}`,
     },
   };
 
@@ -1644,6 +1699,71 @@
     return (s[0] || "?").toUpperCase();
   }
 
+  /** Stable muted hue per author so fallback avatars aren't all one color. */
+  function avatarHue(item) {
+    const s = String(item.author || item.subtitle || "?");
+    let h = 0;
+    for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) >>> 0;
+    return h % 360;
+  }
+
+  function escapeRegExp(s) {
+    return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  }
+
+  /** Wrap query matches in <mark> — input must already be HTML-escaped. */
+  function highlightHtml(escaped, q) {
+    if (!q) return escaped;
+    const tokens = q
+      .split(/\s+/)
+      .filter(Boolean)
+      .map((tok) => escapeRegExp(escapeHtml(tok)));
+    if (!tokens.length) return escaped;
+    try {
+      return escaped.replace(
+        new RegExp(`(${tokens.join("|")})`, "gi"),
+        '<mark class="xh-mark">$1</mark>',
+      );
+    } catch {
+      return escaped;
+    }
+  }
+
+  function dayStart(ts) {
+    const d = new Date(ts);
+    d.setHours(0, 0, 0, 0);
+    return d.getTime();
+  }
+
+  const GROUP_LABEL_KEYS = {
+    today: "groupToday",
+    yesterday: "groupYesterday",
+    week: "groupWeek",
+    earlier: "groupEarlier",
+  };
+
+  function groupKeyFor(ts) {
+    const today = dayStart(Date.now());
+    const day = dayStart(ts);
+    if (day >= today) return "today";
+    if (day >= today - 86_400_000) return "yesterday";
+    if (today - day < 7 * 86_400_000) return "week";
+    return "earlier";
+  }
+
+  const BADGE_ICONS = {
+    like: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z"/></svg>',
+    repost:
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"/></svg>',
+    reply:
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.138 6.01l.351-.01h1.761v2.3l5.087-2.81c1.951-1.08 3.163-3.13 3.163-5.36 0-3.39-2.744-6.13-6.129-6.13H9.756z"/></svg>',
+    detail:
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>',
+    view: '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3.99c-4.96 0-9.25 3.09-11.02 7.51C2.75 15.91 7.04 19 12 19s9.25-3.09 11.02-7.5C21.25 7.08 16.96 3.99 12 3.99zm0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>',
+    bookmark:
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4.5C4 3.12 5.119 2 6.5 2h11C18.881 2 20 3.12 20 4.5v18.44l-8-5.71-8 5.71V4.5zM6.5 4c-.276 0-.5.22-.5.5v14.56l6-4.29 6 4.29V4.5c0-.28-.224-.5-.5-.5h-11z"/></svg>',
+  };
+
   // ——— History page ———
   // Overlay on top of the current layout (home / chat / …). Do NOT inject into
   // React's primaryColumn or hide its children — that breaks layouts like Chat.
@@ -1748,7 +1868,10 @@
       <div class="xh-page-inner">
         <div class="xh-top" role="banner">
           <div class="xh-top-row">
-            <h2 class="xh-top-title" role="heading" aria-level="1"></h2>
+            <div class="xh-title-wrap">
+              <h2 class="xh-top-title" role="heading" aria-level="1"></h2>
+              <span class="xh-count" data-xh-count hidden></span>
+            </div>
             <button type="button" class="xh-clear-btn" data-xh-clear>
               <span></span>
             </button>
@@ -1789,6 +1912,13 @@
             const clearBtn = page.querySelector("[data-xh-search-clear]");
             if (clearBtn) clearBtn.hidden = true;
             refreshPageList();
+          }
+        } else if (e.key === "Enter") {
+          // Open the top result directly
+          const first = page.querySelector("a.xh-cell-hit");
+          if (first) {
+            e.preventDefault();
+            first.click();
           }
         }
       });
@@ -1848,6 +1978,7 @@
     });
 
     // Attach outside React trees so Chat/Home re-renders don't destroy us
+    page.setAttribute("data-xh-fresh", "1");
     document.documentElement.appendChild(page);
     sampleTheme();
     return page;
@@ -1890,14 +2021,26 @@
       searchClear.hidden = !String(searchQuery || "").trim();
     }
     const filters = page.querySelector("[data-xh-filters]");
-    if (filters) {
-      filters.innerHTML = filterChipDefs()
-        .map((f) => {
-          const active = sourceFilter === f.id ? " is-active" : "";
-          return `<button type="button" class="xh-filter-chip${active}" data-xh-filter="${escapeHtml(f.id)}" aria-pressed="${sourceFilter === f.id ? "true" : "false"}">${escapeHtml(t(f.labelKey))}</button>`;
-        })
-        .join("");
-    }
+    if (filters && !filters.children.length) renderFilterChips(page, {});
+  }
+
+  let chipSig = "";
+
+  function renderFilterChips(page, counts) {
+    const filters = page.querySelector("[data-xh-filters]");
+    if (!filters) return;
+    // Skip re-render when nothing changed — keeps chip focus during search
+    const sig = JSON.stringify([counts, sourceFilter, detectLang()]);
+    if (sig === chipSig && filters.children.length) return;
+    chipSig = sig;
+    filters.innerHTML = filterChipDefs()
+      .map((f) => {
+        const active = sourceFilter === f.id ? " is-active" : "";
+        const n = counts[f.id] || 0;
+        const countHtml = n > 0 ? `<span class="xh-chip-n">${n}</span>` : "";
+        return `<button type="button" class="xh-filter-chip${active}" data-xh-filter="${escapeHtml(f.id)}" aria-pressed="${sourceFilter === f.id ? "true" : "false"}"><span>${escapeHtml(t(f.labelKey))}</span>${countHtml}</button>`;
+      })
+      .join("");
   }
 
   function sourceBadgesHtml(item) {
@@ -1923,13 +2066,14 @@
                     ? "sourceBookmark"
                     : null;
       if (!key) continue;
+      const icon = BADGE_ICONS[s] || "";
       labels.push(
-        `<span class="xh-badge xh-badge-${escapeHtml(s)}" title="${escapeHtml(t(key))}">${escapeHtml(t(key))}</span>`,
+        `<span class="xh-badge xh-badge-${escapeHtml(s)}" title="${escapeHtml(t(key))}">${icon}<span>${escapeHtml(t(key))}</span></span>`,
       );
     }
     if (!labels.length) {
       labels.push(
-        `<span class="xh-badge xh-badge-detail" title="${escapeHtml(t("sourceDetail"))}">${escapeHtml(t("sourceDetail"))}</span>`,
+        `<span class="xh-badge xh-badge-detail" title="${escapeHtml(t("sourceDetail"))}">${BADGE_ICONS.detail}<span>${escapeHtml(t("sourceDetail"))}</span></span>`,
       );
     }
     return `<div class="xh-badges">${labels.join("")}</div>`;
@@ -1980,9 +2124,28 @@
     let items = all.filter((it) => itemMatchesSource(it, sourceFilter));
     if (q) items = items.filter((it) => itemMatchesQuery(it, q));
 
+    // Chip counts per source (multi-source items count in each)
+    const counts = { "": all.length };
+    for (const it of all) {
+      const srcs =
+        Array.isArray(it.sources) && it.sources.length ? it.sources : ["detail"];
+      for (const s of new Set(srcs)) counts[s] = (counts[s] || 0) + 1;
+    }
+    renderFilterChips(page, counts);
+
+    const countEl = page.querySelector("[data-xh-count]");
+    if (countEl) {
+      countEl.hidden = !all.length;
+      countEl.textContent = all.length ? t("itemsCount", items.length) : "";
+    }
+
+    const EMPTY_HISTORY_ICON = `<div class="xh-empty-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg></div>`;
+    const EMPTY_SEARCH_ICON = `<div class="xh-empty-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M10.25 3.75a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM1.75 10.25a8.5 8.5 0 1 1 15.176 5.262l4.531 4.53-1.414 1.415-4.53-4.531A8.5 8.5 0 0 1 1.75 10.25z"/></svg></div>`;
+
     if (!all.length) {
       listEl.innerHTML = `
         <div class="xh-empty">
+          ${EMPTY_HISTORY_ICON}
           <div class="xh-empty-title">${escapeHtml(t("emptyTitle"))}</div>
           <div class="xh-empty-desc">${escapeHtml(t("emptyDesc"))}</div>
         </div>`;
@@ -1992,22 +2155,38 @@
     if (!items.length) {
       listEl.innerHTML = `
         <div class="xh-empty">
+          ${EMPTY_SEARCH_ICON}
           <div class="xh-empty-title">${escapeHtml(t("emptySearchTitle"))}</div>
           <div class="xh-empty-desc">${escapeHtml(t("emptySearchDesc"))}</div>
         </div>`;
       return;
     }
 
+    let lastGroup = "";
+    const groupCounts = Object.create(null);
+    for (const item of items) {
+      const ts = item.visitedAt || item.firstSeenAt || Date.now();
+      const g = groupKeyFor(ts);
+      groupCounts[g] = (groupCounts[g] || 0) + 1;
+    }
     listEl.innerHTML = items
       .map((item) => {
         const handle = item.author ? `@${item.author}` : item.subtitle || "";
         const letter = avatarLetter(item);
+        const hue = avatarHue(item);
         const avatar = (item.avatar || "").trim();
         const avatarHtml = avatar
-          ? `<img class="xh-avatar-img" src="${escapeHtml(avatar)}" alt="" width="40" height="40" loading="lazy" decoding="async" referrerpolicy="no-referrer" /><span class="xh-avatar-fallback" hidden aria-hidden="true">${escapeHtml(letter)}</span>`
-          : `<span class="xh-avatar-fallback" aria-hidden="true">${escapeHtml(letter)}</span>`;
+          ? `<img class="xh-avatar-img" src="${escapeHtml(avatar)}" alt="" width="40" height="40" loading="lazy" decoding="async" referrerpolicy="no-referrer" /><span class="xh-avatar-fallback" hidden aria-hidden="true" style="background:hsl(${hue} 48% 42%)">${escapeHtml(letter)}</span>`
+          : `<span class="xh-avatar-fallback" aria-hidden="true" style="background:hsl(${hue} 48% 42%)">${escapeHtml(letter)}</span>`;
         const ts = item.visitedAt || item.firstSeenAt || Date.now();
-        return `
+        const g = groupKeyFor(ts);
+        let groupHtml = "";
+        if (g !== lastGroup) {
+          lastGroup = g;
+          groupHtml = `<div class="xh-group">${escapeHtml(t(GROUP_LABEL_KEYS[g]))} · ${groupCounts[g]}</div>`;
+        }
+        const fullDate = new Date(ts).toLocaleString();
+        return `${groupHtml}
         <div class="xh-cell" data-testid="cellInnerDiv">
           <div class="xh-cell-inner">
             <a class="xh-cell-hit" href="${escapeHtml(item.url)}" aria-label="${escapeHtml(item.title)}">
@@ -2016,9 +2195,9 @@
                 <div class="xh-cell-head">
                   <span class="xh-handle">${escapeHtml(handle)}</span>
                   <span class="xh-dot" aria-hidden="true">·</span>
-                  <time class="xh-time" datetime="${new Date(ts).toISOString()}">${formatTime(ts)}</time>
+                  <time class="xh-time" datetime="${new Date(ts).toISOString()}" title="${escapeHtml(fullDate)}">${formatTime(ts)}</time>
                 </div>
-                <div class="xh-cell-text">${escapeHtml(item.title || t("noTitle"))}</div>
+                <div class="xh-cell-text">${highlightHtml(escapeHtml(item.title || t("noTitle")), q)}</div>
                 ${sourceBadgesHtml(item)}
               </div>
             </a>
@@ -2038,6 +2217,11 @@
         if (fb) fb.hidden = false;
       });
     });
+
+    // Entrance animation only on first render after page creation
+    if (page.hasAttribute("data-xh-fresh")) {
+      setTimeout(() => page.removeAttribute("data-xh-fresh"), 700);
+    }
   }
 
   function showHistoryPage() {
@@ -2055,6 +2239,11 @@
       // Layout can settle after X paints (esp. Chat)
       setTimeout(scheduleLayoutHistoryPage, 50);
       setTimeout(scheduleLayoutHistoryPage, 200);
+      // Focus search once — re-asserts (popstate/timers) must not steal focus
+      if (!page.contains(document.activeElement)) {
+        const input = page.querySelector("[data-xh-search]");
+        if (input) input.focus({ preventScroll: true });
+      }
     }
 
     document.title = t("docTitle");
@@ -2289,6 +2478,14 @@
       true,
     );
     window.addEventListener("resize", scheduleLayoutHistoryPage);
+    window.addEventListener(
+      "scroll",
+      () => {
+        const page = document.getElementById(PAGE_ID);
+        if (page) page.classList.toggle("xh-scrolled", window.scrollY > 4);
+      },
+      { passive: true },
+    );
 
     const themeMo = new MutationObserver(() => sampleTheme());
     if (document.body) {
@@ -2301,10 +2498,10 @@
 
   // ——— Nav ———
 
-  const CLOCK_SVG = `
+  // List/log — not a clock. X's native History tab uses a clock-like mark.
+  const NAV_ICON_SVG = `
     <g>
-      <path d="M12 4c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 14.5c-3.6 0-6.5-2.9-6.5-6.5S8.4 5.5 12 5.5s6.5 2.9 6.5 6.5-2.9 6.5-6.5 6.5z"></path>
-      <path d="M12.75 8h-1.5v5.25l4.5 2.7.75-1.23-3.75-2.22V8z"></path>
+      <path d="M6.5 6a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM9 5h11v2H9V5zm-2.5 7a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM9 11h11v2H9v-2zm-2.5 7a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM9 17h11v2H9v-2z"></path>
     </g>`;
 
   function findNav() {
@@ -2342,7 +2539,7 @@
       const keepView = svg.getAttribute("viewBox") || "0 0 24 24";
       svg.setAttribute("viewBox", keepView);
       if (keepClass) svg.setAttribute("class", keepClass);
-      svg.innerHTML = CLOCK_SVG;
+      svg.innerHTML = NAV_ICON_SVG;
       svg.style.margin = "0";
     }
 
@@ -2355,10 +2552,10 @@
 
     const spans = [...root.querySelectorAll("span")].filter((s) => {
       const t = (s.textContent || "").trim();
-      return t && t.length < 20 && !s.querySelector("span") && !/^\d+$/.test(t);
+      return t && t.length < 28 && !s.querySelector("span") && !/^\d+$/.test(t);
     });
     const known =
-      /^(Home|首页|Explore|探索|Notifications|通知|Messages|消息|Bookmarks|书签|Communities|社群|社区|Premium|Grok|Profile|个人资料|Lists|列表|More|更多|Chat|聊天)$/i;
+      /^(Home|首页|Explore|探索|Notifications|通知|Messages|消息|Bookmarks|书签|History|历史|紀錄|履歴|기록|Historial|Historique|Verlauf|Histórico|История|السجل|Communities|社群|社区|Premium|Grok|Profile|个人资料|Lists|列表|More|更多|Chat|聊天)$/i;
     const labelSpan =
       spans.find((s) => known.test((s.textContent || "").trim())) ||
       spans[spans.length - 1];
@@ -2569,23 +2766,80 @@
     }
   }
 
+  const NATIVE_HISTORY_HREF = /^\/(i\/)?(bookmarks|history)(\/|$)/i;
+  const NATIVE_HISTORY_LABEL =
+    /^(History|Bookmarks|历史|书签|紀錄|書籤|履歴|ブックマーク|기록|북마크|Historial|Marcadores|Historique|Signets|Verlauf|Lesezeichen|Histórico|Salvos|История|Закладки|السجل|العلامات المرجعية)$/i;
+
+  /** X's own History (ex-Bookmarks) — different from this extension. */
+  function findNativeHistoryRow(nav) {
+    if (!nav) return null;
+    const selectors = [
+      'a[href="/i/bookmarks"]',
+      'a[href="/i/history"]',
+      'a[href^="/i/bookmarks"]',
+      'a[href^="/i/history"]',
+      'a[data-testid="AppTabBar_Bookmarks_Link"]',
+      'a[data-testid="AppTabBar_History_Link"]',
+    ];
+    for (const sel of selectors) {
+      const el = nav.querySelector(sel);
+      if (el && el.id !== NAV_ID) return getNavRow(el, nav);
+    }
+    for (const a of nav.querySelectorAll("a[href]")) {
+      if (a.id === NAV_ID) continue;
+      const href = a.getAttribute("href") || "";
+      const path = href.startsWith("http")
+        ? (() => {
+            try {
+              return new URL(href, location.origin).pathname;
+            } catch {
+              return href;
+            }
+          })()
+        : href.split(/[?#]/)[0];
+      if (NATIVE_HISTORY_HREF.test(path)) return getNavRow(a, nav);
+      const label = (a.getAttribute("aria-label") || a.textContent || "")
+        .replace(/\s+/g, " ")
+        .trim();
+      if (NATIVE_HISTORY_LABEL.test(label)) return getNavRow(a, nav);
+    }
+    return null;
+  }
+
   function ensureNavItem() {
     let item = document.getElementById(NAV_ID);
     if (item) {
       setNavActive(isHistoryRoute() || historyViewActive);
       syncNavLabelVisibility();
+      const navEl = findNav();
+      if (navEl) {
+        const nativeRow = findNativeHistoryRow(navEl);
+        const row = getNavRow(item, navEl);
+        if (
+          nativeRow &&
+          row &&
+          nativeRow !== row &&
+          nativeRow.parentElement === navEl &&
+          row.previousElementSibling !== nativeRow
+        ) {
+          nativeRow.after(row);
+        }
+      }
       return;
     }
 
     const nav = findNav();
     if (!nav) return;
 
+    const nativeRow = findNativeHistoryRow(nav);
     const sample =
       nav.querySelector('a[href="/home"]') ||
       nav.querySelector('a[data-testid="AppTabBar_Home_Link"]') ||
       nav.querySelector('a[href="/explore"]') ||
       nav.querySelector('a[href="/notifications"]') ||
-      nav.querySelector("a[href]");
+      [...nav.querySelectorAll("a[href]")].find(
+        (a) => a.id !== NAV_ID && (!nativeRow || getNavRow(a, nav) !== nativeRow),
+      );
     if (!sample) return;
 
     // Clone the whole row (nav > div > a), not bare <a> — bare <a> gets extra
@@ -2624,31 +2878,19 @@
       true,
     );
 
-    const more =
-      nav.querySelector('[data-testid="AppTabBar_More_Menu"]') ||
-      nav.querySelector('button[aria-label="More menu items"]') ||
-      nav.querySelector('button[aria-label="更多菜单项"]') ||
-      nav.querySelector('button[aria-label="More"]') ||
-      nav.querySelector('button[aria-label="更多"]');
-
-    let insertBefore = null;
-    if (more) {
-      insertBefore = getNavRow(more, nav);
-      if (insertBefore === more && more.parentElement !== nav) {
-        insertBefore = getNavRow(more, nav);
-      }
-    }
-
-    if (insertBefore && insertBefore.parentElement === nav) {
-      nav.insertBefore(row, insertBefore);
+    if (nativeRow && nativeRow.parentElement === nav) {
+      nativeRow.after(row);
     } else {
-      const bookmarks =
-        nav.querySelector('a[href="/i/bookmarks"]') ||
-        nav.querySelector('a[data-testid="AppTabBar_Bookmarks_Link"]');
-      if (bookmarks) {
-        const bRow = getNavRow(bookmarks, nav);
-        if (bRow.nextSibling) nav.insertBefore(row, bRow.nextSibling);
-        else nav.appendChild(row);
+      const more =
+        nav.querySelector('[data-testid="AppTabBar_More_Menu"]') ||
+        nav.querySelector('button[aria-label="More menu items"]') ||
+        nav.querySelector('button[aria-label="更多菜单项"]') ||
+        nav.querySelector('button[aria-label="More"]') ||
+        nav.querySelector('button[aria-label="更多"]');
+
+      let insertBefore = more ? getNavRow(more, nav) : null;
+      if (insertBefore && insertBefore.parentElement === nav) {
+        nav.insertBefore(row, insertBefore);
       } else {
         nav.appendChild(row);
       }

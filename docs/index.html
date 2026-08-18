@@ -6,7 +6,7 @@
     <title>X History — Local history for X that stays yours</title>
     <meta
       name="description"
-      content="A local-first Chrome extension for X: History in the sidebar for posts you open, like, repost, or carefully read. Nothing uploaded by default."
+      content="A local-first Chrome extension for X: Local History in the sidebar for posts you open, like, repost, or carefully read. Distinct from X’s History tab. Nothing uploaded by default."
     />
     <meta name="theme-color" content="#000000" />
     <link rel="icon" href="icons/icon48.png" type="image/png" />
@@ -878,8 +878,9 @@
         <h1 data-i18n="hero_title">A private history for X that stays yours</h1>
         <p class="hero-lede" data-i18n="hero_lede">
           X History is a local-first Chrome extension: posts you open, like,
-          repost, reply to, or carefully read land in a sidebar History — on
-          your device, searchable later. Nothing uploaded by default.
+          repost, reply to, or carefully read land in a sidebar Local History —
+          on your device, searchable later. Separate from X’s History tab.
+          Nothing uploaded by default.
         </p>
         <div class="cta-row">
           <a
@@ -903,7 +904,7 @@
               <span class="dot"></span>
               <span class="dot"></span>
               <span class="dot"></span>
-              <div class="chrome-url">x.com / home · History</div>
+              <div class="chrome-url">x.com / home · Local History</div>
             </div>
             <div class="stage-body">
               <aside class="stage-nav" aria-hidden="true">
@@ -918,13 +919,10 @@
                 <div class="nav-item is-active">
                   <svg viewBox="0 0 24 24" fill="currentColor">
                     <path
-                      d="M12 4c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 14.5c-3.6 0-6.5-2.9-6.5-6.5S8.4 5.5 12 5.5s6.5 2.9 6.5 6.5-2.9 6.5-6.5 6.5z"
-                    />
-                    <path
-                      d="M12.75 8h-1.5v5.25l4.5 2.7.75-1.23-3.75-2.22V8z"
+                      d="M6.5 6a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM9 5h11v2H9V5zm-2.5 7a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM9 11h11v2H9v-2zm-2.5 7a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM9 17h11v2H9v-2z"
                     />
                   </svg>
-                  <span data-i18n="mock_hist">History</span>
+                  <span data-i18n="mock_hist">Local History</span>
                 </div>
                 <div class="nav-item">
                   <svg viewBox="0 0 24 24" fill="currentColor">
@@ -937,7 +935,7 @@
               </aside>
               <div class="stage-main">
                 <div class="stage-head">
-                  <h2 data-i18n="mock_title">History</h2>
+                  <h2 data-i18n="mock_title">Local History</h2>
                   <span class="pill" data-i18n="mock_pill">On this device</span>
                 </div>
                 <div class="search-fake" aria-hidden="true">
@@ -1094,7 +1092,7 @@
                   <div class="line"></div>
                   <div class="line"></div>
                   <div class="caption" data-i18n="f3_cap">
-                    Sidebar → History · search &amp; filters
+                    Sidebar → Local History · search &amp; filters
                   </div>
                 </div>
               </div>
@@ -1104,9 +1102,9 @@
               <div class="feature-copy">
                 <h3 data-i18n="f4_t">Feels at home on x.com</h3>
                 <p data-i18n="f4_d">
-                  A History item that matches the native rail — including
-                  icon-only layouts — so it disappears into the site you already
-                  use.
+                  A Local History item that matches the native rail — including
+                  icon-only layouts — labeled so you don’t mix it up with X’s
+                  own History tab.
                 </p>
               </div>
               <div class="feature-card soft-green">
@@ -1118,13 +1116,10 @@
                     height="18"
                   >
                     <path
-                      d="M12 4c-4.4 0-8 3.6-8 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm0 14.5c-3.6 0-6.5-2.9-6.5-6.5S8.4 5.5 12 5.5s6.5 2.9 6.5 6.5-2.9 6.5-6.5 6.5z"
-                    />
-                    <path
-                      d="M12.75 8h-1.5v5.25l4.5 2.7.75-1.23-3.75-2.22V8z"
+                      d="M6.5 6a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM9 5h11v2H9V5zm-2.5 7a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM9 11h11v2H9v-2zm-2.5 7a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM9 17h11v2H9v-2z"
                     />
                   </svg>
-                  <span data-i18n="mock_hist">History</span>
+                  <span data-i18n="mock_hist">Local History</span>
                 </div>
                 <p
                   style="
@@ -1240,7 +1235,7 @@
             <details>
               <summary data-i18n="q2">Does it use the X API?</summary>
               <p data-i18n="a2">
-                No. It works on the web UI only — injects History and reads
+                No. It works on the web UI only — injects Local History and reads
                 on-page metadata for items you engage with.
               </p>
             </details>
@@ -1263,6 +1258,16 @@
               <p data-i18n="a5">
                 About 500 recent items. You can delete individuals or clear all
                 from the History panel.
+              </p>
+            </details>
+            <details>
+              <summary data-i18n="q6">
+                Is this the same as X’s History tab?
+              </summary>
+              <p data-i18n="a6">
+                No. X’s History is bookmarks, likes, videos, and articles on
+                your account. This extension is a local browse history of posts
+                you opened or engaged with — stored on this device.
               </p>
             </details>
           </div>
@@ -1303,14 +1308,14 @@
           nav_get: "Get it",
           hero_title: "A private history for X that stays yours",
           hero_lede:
-            "X History is a local-first Chrome extension: posts you open, like, repost, reply to, or carefully read land in a sidebar History — on your device, searchable later. Nothing uploaded by default.",
+            "X History is a local-first Chrome extension: posts you open, like, repost, reply to, or carefully read land in a sidebar Local History — on your device, searchable later. Separate from X’s History tab. Nothing uploaded by default.",
           cta_primary: "Get X History",
           cta_secondary: "See how it works",
           hero_meta: "Chrome & Edge · Free & open source · MIT · Local only",
           mock_home: "Home",
-          mock_hist: "History",
+          mock_hist: "Local History",
           mock_explore: "Explore",
-          mock_title: "History",
+          mock_title: "Local History",
           mock_pill: "On this device",
           mock_search: "Search history",
           f_all: "All",
@@ -1344,10 +1349,10 @@
           f3_t: "A quiet place to look back",
           f3_d:
             "Search by author or text, filter by source, reopen in one click. No feed noise — just the posts that left a mark.",
-          f3_cap: "Sidebar → History · search & filters",
+          f3_cap: "Sidebar → Local History · search & filters",
           f4_t: "Feels at home on x.com",
           f4_d:
-            "A History item that matches the native rail — including icon-only layouts — so it disappears into the site you already use.",
+            "A Local History item that matches the native rail — including icon-only layouts — labeled so you don’t mix it up with X’s own History tab.",
           f4_card: "Home layout · Chat icon rail · multi-language labels",
           priv_title:
             "Your timeline is public. Your history doesn’t have to leave the device.",
@@ -1377,13 +1382,15 @@
           q1: "What gets saved?",
           a1: "Posts you open, like, repost, reply to, or bookmark — plus careful timeline reads after stable focus (~3s). Not every post you scroll past.",
           q2: "Does it use the X API?",
-          a2: "No. It works on the web UI only — injects History and reads on-page metadata for items you engage with.",
+          a2: "No. It works on the web UI only — injects Local History and reads on-page metadata for items you engage with.",
           q3: "Is there a mobile app?",
           a3: "Not yet. X History is for the desktop browser on x.com / twitter.com.",
           q4: "Will X layout changes break it?",
           a4: "Sometimes, temporarily. Fixes ship as extension updates — that’s the tradeoff of living inside someone else’s UI.",
           q5: "How many items are kept?",
           a5: "About 500 recent items. You can delete individuals or clear all from the History panel.",
+          q6: "Is this the same as X’s History tab?",
+          a6: "No. X’s History is bookmarks, likes, videos, and articles on your account. This extension is a local browse history of posts you opened or engaged with — stored on this device.",
           footer: "X History — not affiliated with X Corp.",
           footer_privacy: "Privacy",
           lang_btn: "中文",
@@ -1394,14 +1401,14 @@
           nav_get: "获取",
           hero_title: "给 X 的私人历史，留在你自己这边",
           hero_lede:
-            "X History 是 local-first 的 Chrome 扩展：你打开、点赞、转发、回复或认真读过的帖，会出现在侧栏「历史」里——存在本机，稍后可搜。默认不上云。",
+            "X History 是 local-first 的 Chrome 扩展：你打开、点赞、转发、回复或认真读过的帖，会出现在侧栏「本地历史」里——存在本机，稍后可搜。和 X 自带的 History 不是一回事。默认不上云。",
           cta_primary: "获取 X History",
           cta_secondary: "看看怎么用",
           hero_meta: "Chrome 与 Edge · 免费开源 · MIT · 仅本机",
           mock_home: "首页",
-          mock_hist: "历史",
+          mock_hist: "本地历史",
           mock_explore: "探索",
-          mock_title: "历史",
+          mock_title: "本地历史",
           mock_pill: "仅本机",
           mock_search: "搜索历史",
           f_all: "全部",
@@ -1435,10 +1442,10 @@
           f3_t: "安静地回头看",
           f3_d:
             "按作者或正文搜，按来源筛，一点就能回去。没有信息流噪音——只有留下痕迹的帖。",
-          f3_cap: "侧栏 → 历史 · 搜索与筛选",
+          f3_cap: "侧栏 → 本地历史 · 搜索与筛选",
           f4_t: "融进 x.com",
           f4_d:
-            "侧栏 History 尽量贴近原生导航，包括图标窄轨，用起来像本来就在那儿。",
+            "侧栏「本地历史」尽量贴近原生导航，包括图标窄轨，和 X 自带的 History 并排但不混淆。",
           f4_card: "首页布局 · Chat 窄轨 · 多语言标签",
           priv_title: "时间线是公开的。你的历史不必离开这台设备。",
           priv_intro:
@@ -1463,13 +1470,15 @@
           q1: "会保存什么？",
           a1: "你打开、点赞、转发、回复或加书签的帖，以及焦点稳定约 3 秒后的认真阅读。不是滑过的每一条。",
           q2: "会调用 X API 吗？",
-          a2: "不会。只在网页 UI 上工作——注入历史入口，并读取你互动帖的页面元数据。",
+          a2: "不会。只在网页 UI 上工作——注入「本地历史」入口，并读取你互动帖的页面元数据。",
           q3: "有手机 App 吗？",
           a3: "还没有。目前面向桌面浏览器上的 x.com / twitter.com。",
           q4: "X 改版会坏掉吗？",
           a4: "有时会暂时失效。会通过扩展更新修复——嵌在别人的界面里就有这个取舍。",
           q5: "能存多少条？",
           a5: "大约最近 500 条。可在历史面板删除单条或全部清空。",
+          q6: "这和 X 自带的 History 一样吗？",
+          a6: "不一样。X 的 History 是账号里的书签、点赞、视频和文章。这个扩展记录的是你在这台设备上打开或互动过的帖，数据留在本机。",
           footer: "X History — 与 X Corp. 无关联。",
           footer_privacy: "隐私",
           lang_btn: "EN",

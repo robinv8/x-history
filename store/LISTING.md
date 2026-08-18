@@ -13,7 +13,7 @@
 | Category | Productivity |
 | Language | English |
 | Extension name | `X History - Browse history for X / Twitter` |
-| Short description | `History in the X sidebar. Saves posts you open, like, repost, or carefully read. Search later — data stays on your device.` |
+| Short description | `Local History in the X sidebar — not X’s History tab. Saves posts you open or engage with. Stays on this device.` |
 | Detailed description | 复制下方 English 详细说明 |
 | Single purpose | `This extension’s single purpose is to keep a local history of X/Twitter posts the user opens or interacts with in the browser, and to surface that history via a sidebar entry and searchable list on x.com.` |
 | Website | https://x-history.robinren.me |
@@ -52,7 +52,7 @@ Used to detect navigation changes within X/Twitter's single-page web app. This l
 **Host permissions: `https://x.com/*`, `https://twitter.com/*`**
 
 ```
-Required to add the History sidebar item and history UI to the X/Twitter website, and to read on-page post metadata (author, text snippet, avatar URL, post URL, post ID) and detect on-page interactions the user initiates, for the local history list. The extension does not run on unrelated websites.
+Required to add the Local History sidebar item and history UI to the X/Twitter website, and to read on-page post metadata (author, text snippet, avatar URL, post URL, post ID) and detect on-page interactions the user initiates, for the local history list. The extension does not run on unrelated websites.
 ```
 
 ### Data use certification
@@ -64,7 +64,7 @@ X History uses data only for its single purpose: saving and showing a local hist
 ### Store review note
 
 ```
-X History is local-first and open source. It injects a History entry into x.com / twitter.com, records post detail pages the user opens plus optional timeline interactions (like, repost, reply, bookmark) and careful reads under conservative rules, and stores history locally in chrome.storage.local with a recent-item limit (~500). Users can delete individual entries or clear all history from the UI.
+X History is local-first and open source. It injects a Local History entry into x.com / twitter.com (labeled distinctly from X’s own History tab), records post detail pages the user opens plus optional timeline interactions (like, repost, reply, bookmark) and careful reads under conservative rules, and stores history locally in chrome.storage.local with a recent-item limit (~500). Users can delete individual entries or clear all history from the UI.
 ```
 
 ---
@@ -88,13 +88,13 @@ X History - X / Twitter 浏览历史
 **English**
 
 ```
-History in the X sidebar. Saves posts you open, like, repost, or carefully read. Search later — data stays on your device.
+Local History in the X sidebar — not X’s History tab. Saves posts you open or engage with. Stays on this device.
 ```
 
 **中文**
 
 ```
-在 X 侧栏加「历史」。记录打开、点赞、转发与认真读过的帖，本地可搜，数据不出本机。
+在 X 侧栏加「本地历史」（不是 X 自带的 History）。记录打开、点赞、转发与认真读过的帖，数据留在本机。
 ```
 
 ---
@@ -104,10 +104,10 @@ History in the X sidebar. Saves posts you open, like, repost, or carefully read.
 **English**
 
 ```
-X History adds a missing piece of the X (Twitter) web experience: a local, searchable history of posts you actually engaged with.
+X History adds a missing piece of the X (Twitter) web experience: a local, searchable history of posts you actually engaged with. It is not X’s own History tab (bookmarks, likes, videos, articles).
 
 FEATURES
-• Sidebar “History” — fits home and icon-rail layouts
+• Sidebar “Local History” — sits next to X’s History/Bookmarks, fits home and icon-rail layouts
 • Opened posts — detail pages you visit
 • Timeline actions — like, repost, reply, bookmark
 • Careful reads — only after stable focus (not every scroll-by)
@@ -119,7 +119,7 @@ FEATURES
 HOW TO USE
 1. Install the extension and open x.com
 2. Open posts or interact in the timeline as usual
-3. Click History in the left sidebar
+3. Click Local History in the left sidebar
 4. Search, filter, reopen, or clear entries anytime
 
 PRIVACY
@@ -139,10 +139,10 @@ Feedback welcome via GitHub Issues or the store support link.
 **中文**
 
 ```
-X History 补上 X（Twitter）网页版缺少的能力：本地可搜的「我碰过的帖」历史。
+X History 补上 X（Twitter）网页版缺少的能力：本地可搜的「我碰过的帖」历史。它不是 X 自带的 History（书签、点赞、视频、文章）。
 
 功能
-• 左侧「历史」入口（适配首页与窄轨图标栏）
+• 左侧「本地历史」入口（挨着 X 的 History/书签，适配首页与窄轨图标栏）
 • 记录打开过的推文详情
 • 记录时间线点赞、转发、回复、书签
 • 认真阅读（焦点稳定后才记，不是每条滑过都记）
@@ -154,7 +154,7 @@ X History 补上 X（Twitter）网页版缺少的能力：本地可搜的「我�
 使用方式
 1. 安装扩展并打开 x.com
 2. 正常打开帖子或在时间线互动
-3. 点击左侧「历史」
+3. 点击左侧「本地历史」
 4. 可搜索、筛选、跳转、删除或清空
 
 隐私
@@ -200,9 +200,9 @@ Used to detect when you navigate between pages on X so the extension can record 
 用于检测你在 X 站内的页面跳转，以便记录打开过的推文并同步历史页状态。仅作用于 x.com / twitter.com。
 
 ### Host permission (x.com / twitter.com)
-Required to inject the History menu and UI into the X website, and to read on-page post metadata (author, text snippet, avatar) for the history list.
+Required to inject the Local History menu and UI into the X website, and to read on-page post metadata (author, text snippet, avatar) for the history list.
 
-需要在 X 网页注入「历史」菜单与界面，并读取页面上的推文元数据（作者、摘要、头像）用于历史列表。
+需要在 X 网页注入「本地历史」菜单与界面，并读取页面上的推文元数据（作者、摘要、头像）用于历史列表。
 
 ---
 
@@ -220,7 +220,7 @@ This extension’s single purpose is to keep a local history of X/Twitter posts 
 
 ## 截图建议（至少 1 张，推荐 1280×800 或 640×400）
 
-1. 左侧出现 History / 历史 菜单  
+1. 左侧出现 Local History / 本地历史 菜单（与 X 自带 History 区分）  
 2. 历史列表（含头像、时间）  
 3. 搜索过滤结果  
 4. （可选）深色模式界面  
