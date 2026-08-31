@@ -79,7 +79,9 @@ nav[role="navigation"] > *:has(#x-history-nav-item) {
   }
 }
 
-#x-history-page.xh-page {
+/* Only play the fade on the first mount. A perpetual animation on .xh-page
+   retriggers if the node is re-inserted or if style writes restart it. */
+#x-history-page[data-xh-fresh].xh-page {
   animation: xhPageIn 0.15s ease-out;
 }
 

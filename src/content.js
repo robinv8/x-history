@@ -19,6 +19,14 @@
   let searchDebounce = null;
   /** History panel source filter: "" | detail | like | repost | reply | view | bookmark */
   let sourceFilter = "";
+  /** First successful list paint for the current overlay mount */
+  let historyListPainted = false;
+  /** Last rendered list signature — skip identical innerHTML rewrites */
+  let listRenderSig = "";
+  let refreshGen = 0;
+  /** Last overlay box that came from a real primary-column anchor */
+  let lastStableLayout = null;
+  let lastThemeSig = "";
 
   // Focus / capture runtime (accuracy-first)
   let lastDetailSig = "";
@@ -702,6 +710,10 @@
       "--xh-header-bg": headerBg,
       "--xh-accent": accent,
     };
+
+    const themeSig = XHistoryViewStability.themeSignature(tokens, bg, textColor);
+    if (themeSig === lastThemeSig) return;
+    lastThemeSig = themeSig;
 
     // Apply on :root AND the page node (page had local defaults that shadowed root)
     const page = document.getElementById(PAGE_ID);
@@ -1779,10 +1791,7 @@
 
   let layoutRaf = 0;
 
-  function layoutHistoryPage() {
-    const page = document.getElementById(PAGE_ID);
-    if (!page || !historyViewActive) return;
-
+  function measureHistoryLayout() {
     const anchor = findContentAnchor();
     const nav =
       document.querySelector('header[role="banner"]') ||
@@ -1792,6 +1801,7 @@
     let left = 0;
     let width = Math.min(600, window.innerWidth);
     let height = window.innerHeight;
+    let fromAnchor = false;
 
     if (anchor) {
       const r = anchor.getBoundingClientRect();
@@ -1801,6 +1811,7 @@
         left = Math.max(0, r.left);
         width = r.width;
         height = Math.max(200, window.innerHeight - top);
+        fromAnchor = true;
       } else if (nav) {
         const nr = nav.getBoundingClientRect();
         left = nr.right;
@@ -1814,11 +1825,36 @@
       height = window.innerHeight;
     }
 
+    return { top, left, width, height, fromAnchor };
+  }
+
+  function layoutHistoryPage() {
+    const page = document.getElementById(PAGE_ID);
+    if (!page || !historyViewActive) return;
+
+    const measured = measureHistoryLayout();
+    const box = XHistoryViewStability.settleLayout(measured, lastStableLayout);
+    if (!box) return;
+    lastStableLayout = box;
+
+    const current = {
+      top: parseFloat(page.style.top) || 0,
+      left: parseFloat(page.style.left) || 0,
+      width: parseFloat(page.style.width) || 0,
+      height: parseFloat(page.style.height) || 0,
+    };
+    if (
+      page.style.position === "fixed" &&
+      XHistoryViewStability.boxesEqual(current, box)
+    ) {
+      return;
+    }
+
     page.style.position = "fixed";
-    page.style.top = `${top}px`;
-    page.style.left = `${left}px`;
-    page.style.width = `${width}px`;
-    page.style.height = `${height}px`;
+    page.style.top = `${box.top}px`;
+    page.style.left = `${box.left}px`;
+    page.style.width = `${box.width}px`;
+    page.style.height = `${box.height}px`;
     page.style.zIndex = "5";
     page.style.overflow = "auto";
     page.style.boxSizing = "border-box";
@@ -1842,11 +1878,8 @@
 
     if (active) {
       item.setAttribute("aria-current", "page");
-      document
-        .querySelectorAll('nav[role="navigation"] a[aria-current="page"]')
-        .forEach((a) => {
-          if (a.id !== NAV_ID) a.removeAttribute("aria-current");
-        });
+      // Do not strip aria-current from X's own links. Those nodes are React-
+      // owned; mutating them makes React remount the rail (visible flicker).
     } else {
       item.removeAttribute("aria-current");
     }
@@ -1973,6 +2006,7 @@
       if (hit) {
         historyViewActive = false;
         document.documentElement.removeAttribute("data-xh-history");
+        resetHistoryViewState();
         page.remove();
       }
     });
@@ -2107,6 +2141,7 @@
   }
 
   async function refreshPageList() {
+    const gen = ++refreshGen;
     const page = document.getElementById(PAGE_ID);
     if (!page) return;
     applyPageChrome(page);
@@ -2120,6 +2155,7 @@
     }
 
     const all = await XHistoryStorage.getAll();
+    if (gen !== refreshGen) return;
     const q = normalizeSearch(searchQuery);
     let items = all.filter((it) => itemMatchesSource(it, sourceFilter));
     if (q) items = items.filter((it) => itemMatchesQuery(it, q));
@@ -2132,6 +2168,18 @@
       for (const s of new Set(srcs)) counts[s] = (counts[s] || 0) + 1;
     }
     renderFilterChips(page, counts);
+
+    const renderSig = XHistoryViewStability.listSignature(items, {
+      q,
+      sourceFilter,
+      lang: detectLang(),
+      allCount: all.length,
+      visibleCount: items.length,
+    });
+    if (renderSig === listRenderSig && listEl.childElementCount) {
+      return;
+    }
+    listRenderSig = renderSig;
 
     const countEl = page.querySelector("[data-xh-count]");
     if (countEl) {
@@ -2230,34 +2278,51 @@
     document.documentElement.setAttribute("data-xh-history", "1");
     setNavActive(true);
 
+    const existed = !!document.getElementById(PAGE_ID);
     const page = ensurePageShell();
     if (page) {
       page.hidden = false;
-      sampleTheme();
-      refreshPageList();
+      // First paint only. Re-entry from SPA route watchers / timers used to
+      // call refreshPageList() here, which replaced innerHTML and replayed
+      // the [data-xh-fresh] fade — the "flashes many times" bug.
+      if (!existed || !historyListPainted) {
+        historyListPainted = true;
+        sampleTheme();
+        refreshPageList();
+        if (!page.contains(document.activeElement)) {
+          const input = page.querySelector("[data-xh-search]");
+          if (input) input.focus({ preventScroll: true });
+        }
+      }
       scheduleLayoutHistoryPage();
-      // Layout can settle after X paints (esp. Chat)
+      // Layout can settle after X paints (esp. Chat) — size only, no remount
       setTimeout(scheduleLayoutHistoryPage, 50);
       setTimeout(scheduleLayoutHistoryPage, 200);
-      // Focus search once — re-asserts (popstate/timers) must not steal focus
-      if (!page.contains(document.activeElement)) {
-        const input = page.querySelector("[data-xh-search]");
-        if (input) input.focus({ preventScroll: true });
-      }
     }
 
-    document.title = t("docTitle");
+    const title = t("docTitle");
+    if (document.title !== title) document.title = title;
+  }
+
+  function resetHistoryViewState() {
+    historyListPainted = false;
+    listRenderSig = "";
+    chipSig = "";
+    lastStableLayout = null;
+    lastThemeSig = "";
   }
 
   function leaveHistoryPage() {
     if (!historyViewActive && !document.getElementById(PAGE_ID)) {
       document.documentElement.removeAttribute("data-xh-history");
       setNavActive(false);
+      resetHistoryViewState();
       return;
     }
     historyViewActive = false;
     document.documentElement.removeAttribute("data-xh-history");
     setNavActive(false);
+    resetHistoryViewState();
     const page = document.getElementById(PAGE_ID);
     if (page) page.remove();
   }
@@ -2362,10 +2427,10 @@
     // Always land on Home layout first (not stacked on Chat)
     mainNavigate("xh-push", historyPageUrl(), { xhHistory: true });
     showHistoryPage();
-    // X needs a beat to swap Chat chrome → Home primary column
+    // X needs a beat to swap Chat chrome → Home primary column.
+    // Relayout only — do not remount or rebuild the list.
     const relayout = () => {
       if (!isHistoryRoute() || exitHistoryLock) return;
-      showHistoryPage();
       scheduleLayoutHistoryPage();
     };
     requestAnimationFrame(relayout);
@@ -2389,20 +2454,14 @@
         return;
       }
       showHistoryPage();
-      // Re-assert after X finishes its own render
+      // Re-layout after X finishes its own render — do not rebuild the list
       if (reason === "popstate" || reason === "page-hook" || reason === "bg") {
-        requestAnimationFrame(() => showHistoryPage());
+        requestAnimationFrame(scheduleLayoutHistoryPage);
         setTimeout(() => {
-          if (isHistoryRoute() && !exitHistoryLock) {
-            showHistoryPage();
-            scheduleLayoutHistoryPage();
-          }
+          if (isHistoryRoute() && !exitHistoryLock) scheduleLayoutHistoryPage();
         }, 50);
         setTimeout(() => {
-          if (isHistoryRoute() && !exitHistoryLock) {
-            showHistoryPage();
-            scheduleLayoutHistoryPage();
-          }
+          if (isHistoryRoute() && !exitHistoryLock) scheduleLayoutHistoryPage();
         }, 300);
       }
     } else {
@@ -2454,7 +2513,10 @@
       if (document.getElementById(NAV_ID)) syncNavLabelVisibility();
     }, 500);
 
-    const mo = new MutationObserver(() => {
+    const mo = new MutationObserver((mutations) => {
+      if (XHistoryViewStability.mutationsAreInsideOverlay(mutations, PAGE_ID)) {
+        return;
+      }
       if (location.href !== prev) {
         prev = location.href;
         onUrlMaybeChanged("mutation");
@@ -2719,25 +2781,39 @@
   }
 
   let lastNavIconOnly = null;
+  let navModeFlipTimer = 0;
 
   /**
    * Chat icon rail: hide label completely.
    * Home expanded: clear forced styles so text shows.
-   * Rebuild nav item when mode flips so structure matches native items.
+   * Rebuild nav item when mode flips so structure matches native items —
+   * debounced so SPA layout oscillation does not destroy/recreate the row.
    */
   function syncNavLabelVisibility() {
     const iconOnly = isNavIconOnly();
 
     // Mode switch (Home ↔ Chat): rebuild from a live sample so DOM matches
     if (lastNavIconOnly !== null && lastNavIconOnly !== iconOnly) {
-      const existing = document.getElementById(NAV_ID);
-      if (existing) {
-        const navEl = findNav();
-        const row = navEl ? getNavRow(existing, navEl) : existing;
-        (row || existing).remove();
+      const ours = document.getElementById(NAV_ID);
+      if (ours) {
+        applyNavLabelText(ours);
+        if (iconOnly) hideLabelChrome(ours);
+        else showLabelChrome(ours);
       }
-      lastNavIconOnly = iconOnly;
-      ensureNavItem();
+      clearTimeout(navModeFlipTimer);
+      navModeFlipTimer = setTimeout(() => {
+        navModeFlipTimer = 0;
+        const next = isNavIconOnly();
+        if (lastNavIconOnly === next) return;
+        const existing = document.getElementById(NAV_ID);
+        if (existing) {
+          const navEl = findNav();
+          const row = navEl ? getNavRow(existing, navEl) : existing;
+          (row || existing).remove();
+        }
+        lastNavIconOnly = next;
+        ensureNavItem();
+      }, 180);
       return;
     }
     lastNavIconOnly = iconOnly;
