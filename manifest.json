@@ -31,7 +31,7 @@
         "https://x.com/*",
         "https://twitter.com/*"
       ],
-      "js": ["src/storage.js", "src/content.js"],
+      "js": ["src/storage.js", "src/view-stability.js", "src/content.js"],
       "css": ["src/content.css"],
       "run_at": "document_idle"
     }
