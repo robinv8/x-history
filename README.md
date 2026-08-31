@@ -91,4 +91,4 @@ Enable **GitHub Pages** → branch `main` → `/docs`, custom domain `x-history.
 
 ## Version
 
-Current: **1.3.0**
+Current: **1.3.1**

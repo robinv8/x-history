@@ -15,7 +15,7 @@ mkdir -p "$STAGE/icons" "$STAGE/src"
 
 cp manifest.json "$STAGE/"
 cp icons/icon16.png icons/icon48.png icons/icon128.png "$STAGE/icons/"
-cp src/background.js src/content.js src/content.css src/page-hook.js src/storage.js "$STAGE/src/"
+cp src/background.js src/content.js src/content.css src/page-hook.js src/storage.js src/view-stability.js "$STAGE/src/"
 
 # Optional short readme inside package (not required by store)
 cat > "$STAGE/README.txt" << EOF
