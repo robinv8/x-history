@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-xh-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <title>X History fixture</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #000;
+        color: #e7e9ea;
+        font-family: system-ui, sans-serif;
+      }
+      header[role="banner"] {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 275px;
+        height: 100vh;
+        box-sizing: border-box;
+        padding: 16px;
+      }
+      nav[role="navigation"] a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: inherit;
+        text-decoration: none;
+        padding: 10px 12px;
+        border-radius: 9999px;
+        font-size: 20px;
+      }
+      nav[role="navigation"] svg {
+        width: 24px;
+        height: 24px;
+        fill: currentColor;
+      }
+      [data-testid="primaryColumn"] {
+        position: absolute;
+        left: 275px;
+        top: 0;
+        width: 600px;
+        height: 100vh;
+        background: #000;
+        border-left: 1px solid #2f3336;
+        border-right: 1px solid #2f3336;
+        box-sizing: border-box;
+      }
+      #fixture-status {
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+        z-index: 2147483647;
+        background: #15202b;
+        border: 1px solid #38444d;
+        border-radius: 12px;
+        padding: 10px 12px;
+        font: 13px/1.4 ui-monospace, monospace;
+        max-width: 360px;
+      }
+    </style>
+    <link rel="stylesheet" href="/src/content.css" />
+  </head>
+  <body>
+    <header role="banner">
+      <nav role="navigation">
+        <a href="/home" data-testid="AppTabBar_Home_Link" aria-current="page">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l9 8h-3v10H6V10H3z"></path></svg>
+          <span>Home</span>
+        </a>
+        <a href="/explore">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2a8 8 0 105.3 14.1L22 22l-1.4 1.4-6.7-5.9A8 8 0 0010 2z"></path></svg>
+          <span>Explore</span>
+        </a>
+        <a href="/i/bookmarks" data-testid="AppTabBar_Bookmarks_Link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h16v18l-8-5-8 5V3z"></path></svg>
+          <span>Bookmarks</span>
+        </a>
+      </nav>
+    </header>
+    <main role="main">
+      <div data-testid="primaryColumn">
+        <article data-testid="tweet">
+          <a href="/alice/status/111"><time>now</time></a>
+          <div data-testid="User-Name">Alice @alice</div>
+          <div data-testid="tweetText">Timeline post (should stay under the overlay)</div>
+        </article>
+      </div>
+    </main>
+    <div id="fixture-status">boot…</div>
+
+    <script src="/test/fixture/chrome-mock.js"></script>
+    <script src="/src/page-hook.js"></script>
+    <script src="/src/storage.js"></script>
+    <script src="/src/view-stability.js"></script>
+    <script src="/src/content.js"></script>
+    <script src="/test/fixture/autotest.js"></script>
+  </body>
+</html>
