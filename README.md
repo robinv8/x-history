@@ -34,6 +34,12 @@ Hosted on **GitHub Pages** (`docs/`) with custom domain via Cloudflare DNS.
 
 Install from the [Chrome Web Store](https://chromewebstore.google.com/detail/jijknbffmnjebeklhmmfldhgkefgcdoo).
 
+## Updates and history
+
+History lives in `chrome.storage.local` for this extension’s Chrome Web Store ID (`jijknbffmnjebeklhmmfldhgkefgcdoo`). Chrome keeps that data when it **updates** the same ID (store → store).
+
+`manifest.json` includes the store public `key`, so **Load unpacked** uses that same ID. Installing from the store on top of an unpacked build is an in-place update — history stays. **Do not uninstall** first when moving from unpacked to the store: uninstall still deletes storage (Chrome’s behavior).
+
 ## Package / publish
 
 ```bash
