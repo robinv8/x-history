@@ -3,6 +3,7 @@
   "name": "X History",
   "version": "1.3.1",
   "description": "Local history for X: posts you open, like, repost, or carefully read. Search later. Stays on device.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzKItwpgo7EeziKB2vDFJkQeTtGhXay98kzsm5ndo016E4JLIcztsykmqKppQ3xlpSeD/EHPjw8e+ZYlUE+AgJPvQ1A4tBz4Xm7dyLUvOXM+9nWtulz9NWCq04LsRInLjmKVAa2yB3zWGp9tEpUg2vXdrTaMMxQZ6NN9tLaopxumrdrj8FDqAr2al675hUMAa9YKrCmvpYeJh3Qdm0gyZQNn98+ZF8lS9sUx/9aFhQMFMCv6QKZtGH97eE09WIzLEZFFn/cSk0JLm2Sdj9u/BPeZle7rBy9mFJEyFIUREuw1p2niZaStB+dpAXawbnbLNWGfH3lp3VN+XTKJye1fnFwIDAQAB",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
